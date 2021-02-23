@@ -35,4 +35,4 @@ jobs:
         branch: ${{ secrets.TARGET_BRANCH }}
         folder: dist
         repository-name: ${{ secrets.TARGET_REPO }}
-        tokem: ${{ secrets.GITHUB_TOKEN }}
+        tokem: ${{ secrets.GH_TOKEN }}
