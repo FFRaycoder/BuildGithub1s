@@ -1,0 +1,38 @@
+name: BuildGithub1s
+
+on: 
+  schedule:
+    - cron: "0 0 0/2 * * ? *"
+  watch:
+    types: [started]
+   
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v2.1.4
+      with:
+        node-version: 14.x
+
+    - name: Clone Github1s Repo
+      run: |
+        git clone https://github.com/conwnet/github1s.git
+        cd github1s
+
+    - name: Install dependencies
+      run: |
+        yarn
+
+    - name: Build
+      run: |
+        yarn build
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@4.0.0
+      with:
+        branch: ${{ secrets.TARGET_BRANCH }}
+        folder: dist
+        repository-name: ${{ secrets.TARGET_REPO }}
+        tokem: ${{ secrets.GITHUB_TOKEN }}
