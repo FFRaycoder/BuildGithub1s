@@ -23,11 +23,10 @@ jobs:
     - name: Clone Github1s Repo
       run: |
         git clone https://github.com/conwnet/github1s.git
-        cd github1s
 
     - name: Install dependencies
       run: |
-        ls
+        cd github1s
         yarn
 
     - name: Build
