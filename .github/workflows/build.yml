@@ -1,6 +1,10 @@
 name: BuildGithub1s
 
 on: 
+  push:
+    branches:
+      - main
+      - master
   schedule:
     - cron: "0 0/2 * * *"
   watch:
@@ -23,6 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        ls
         yarn
 
     - name: Build
