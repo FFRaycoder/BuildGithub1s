@@ -47,6 +47,8 @@ jobs:
         cd github1s
         yarn build
         cd dist
+        git config --global user.email noreply@github.com
+        git config --global user.name github-actions
         git init
         ls
 
