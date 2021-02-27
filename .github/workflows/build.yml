@@ -47,7 +47,8 @@ jobs:
         cd github1s
         yarn build
         cd dist
-        ls
+        git init
+        ls -a
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.0.0
