@@ -53,6 +53,6 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@4.0.0
       with:
         branch: ${{ secrets.TARGET_BRANCH }}
-        folder: github1s/dist
+        folder: "github1s/dist"
         repository-name: ${{ secrets.TARGET_REPO }}
         tokem: ${{ secrets.GH_TOKEN }}
